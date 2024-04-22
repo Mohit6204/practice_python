@@ -9,8 +9,6 @@ options=[["A. Guido van Rossum","B.Elon Musk","C. Bill Gates","D. Mark Zukerberg
          ["A. Lonely Island", "B. Smosh", "C. Monty Python","D. SNL"],
          ["A. True","B. False","C. Sometimes","D. What's Earth?"]]
 
-print("----------------------------------------------------")
-
 def calculate_score(players_answers):
     score=0
     i=0
@@ -22,23 +20,30 @@ def calculate_score(players_answers):
     score/=4
     return int(score)
 
-number=0
-players_answers=[]
-for key in questions.keys():
-    print(key)
-    for guess in options[number]:
-        print(guess)
-    guessed_answer=input("Choose option A, B, C or D\n")
-    players_answers.append(guessed_answer)
-    number+=1
-    print("----------------------------------------------------")
+print("----------------------------------------------------")
 
-print("Correct answers are: ")
-for values in questions.values():
-    print(values,end=' ')
-print('\n')
-print("Your guesses are: ")
-for players_guesses in players_answers:
-    print(players_guesses,end=' ')
-print('\n')
-print("Your final score is",calculate_score(players_answers),"%")
+play='yes'
+
+while play=='yes':
+    number=0
+    players_answers=[]
+    for key in questions.keys():
+        print(key)
+        for guess in options[number]:
+            print(guess)
+        guessed_answer=input("Choose option A, B, C or D\n")
+        players_answers.append(guessed_answer)
+        number+=1
+        print("----------------------------------------------------")
+
+    print("Correct answers are: ")
+    for values in questions.values():
+        print(values,end=' ')
+    print('\n')
+    print("Your guesses are: ")
+    for players_guesses in players_answers:
+        print(players_guesses,end=' ')
+    print('\n')
+    print("Your final score is",calculate_score(players_answers),"%")
+
+    play=input("Do you want to play again? (Yes/No): ").lower()
